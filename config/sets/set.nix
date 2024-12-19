@@ -1,17 +1,9 @@
-{
-  lib,
-  config,
-  ...
-}:
-{
-  options = {
-    set.enable = lib.mkEnableOption "Enable set module";
-  };
+{ lib, config, ... }: {
+  options = { set.enable = lib.mkEnableOption "Enable set module"; };
   config = lib.mkIf config.set.enable {
     opts = {
       # Enable relative line numbers
       number = true;
-      relativenumber = true;
 
       # Set tabs to 2 spaces
       tabstop = 2;
@@ -50,11 +42,7 @@
       updatetime = 50; # faster completion (4000ms default)
 
       # Set completeopt to have a better completion experience
-      completeopt = [
-        "menuone"
-        "noselect"
-        "noinsert"
-      ]; # mostly just for cmp
+      completeopt = [ "menuone" "noselect" "noinsert" ]; # mostly just for cmp
 
       # Enable persistent undo history
       swapfile = false;
@@ -96,7 +84,7 @@
       # Change cursor options
       guicursor = [
         "n-v-c:block" # Normal, visual, command-line: block cursor
-        "i-ci-ve:block" # Insert, command-line insert, visual-exclude: vertical bar cursor with block cursor, use "ver25" for 25% width
+        "i-ci-ve:ver25" # Insert, command-line insert, visual-exclude: vertical bar cursor with block cursor, use "ver25" for 25% width
         "r-cr:hor20" # Replace, command-line replace: horizontal bar cursor with 20% height
         "o:hor50" # Operator-pending: horizontal bar cursor with 50% height
         "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor" # All modes: blinking settings
@@ -105,7 +93,7 @@
 
       # Enable chars list
       list = true; # Show invisible characters (tabs, eol, ...)
-      listchars = "eol:↲,tab:|->,lead:·,space: ,trail:•,extends:→,precedes:←,nbsp:␣";
+      listchars = "eol:↲,tab:|->,space: ,trail:•,extends:→,precedes:←,nbsp:␣";
 
       # More space in the neovim command line for displaying messages
       cmdheight = 2;
@@ -145,5 +133,6 @@
         o.guifont = "JetBrainsMono Nerd Font:h14:Medium:i"
       end
     '';
+    performance = { byteCompileLua.enable = true; };
   };
 }

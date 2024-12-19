@@ -1,8 +1,5 @@
-{ lib, config, ... }:
-{
-  options = {
-    better-escape.enable = lib.mkEnableOption "Enable better-escape module";
-  };
+{ lib, config, ... }: {
+  options = { better-escape.enable = lib.mkEnableOption "Enable better-escape module"; };
   config = lib.mkIf config.better-escape.enable {
     plugins.better-escape = {
       enable = true;
@@ -22,16 +19,8 @@
               j = "<Esc>";
             };
           };
-          v = {
-            j = {
-              k = "<Esc>";
-            };
-          };
-          s = {
-            j = {
-              k = "<Esc>";
-            };
-          };
+          v = { j = { k = "<Esc>"; }; };
+          s = { j = { k = "<Esc>"; }; };
         };
       };
     };

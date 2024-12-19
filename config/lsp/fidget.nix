@@ -1,8 +1,5 @@
-{ lib, config, ... }:
-{
-  options = {
-    fidget.enable = lib.mkEnableOption "Enable fidget module";
-  };
+{ lib, config, ... }: {
+  options = { fidget.enable = lib.mkEnableOption "Enable fidget module"; };
   config = lib.mkIf config.fidget.enable {
 
     plugins.fidget = {
@@ -58,9 +55,7 @@
             function (group) return tostring (group) end
           ''; # How to format a progress notification group's name
           overrides = {
-            rust_analyzer = {
-              name = "rust-analyzer";
-            };
+            rust_analyzer = { name = "rust-analyzer"; };
           }; # Override options from the default notification config
         };
       };
@@ -76,9 +71,7 @@
             end
           end
         '';
-        configs = {
-          default = "require('fidget.notification').default_config";
-        };
+        configs = { default = "require('fidget.notification').default_config"; };
 
         window = {
           normalHl = "Comment";

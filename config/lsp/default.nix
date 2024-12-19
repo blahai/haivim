@@ -1,20 +1,7 @@
-{
-  lib,
-  config,
-  ...
-}:
-{
-  imports = [
-    ./conform.nix
-    ./fidget.nix
-    ./lsp-nvim.nix
-    ./lspsaga.nix
-    ./trouble.nix
-  ];
+{ lib, config, ... }: {
+  imports = [ ./conform.nix ./fidget.nix ./lsp-nvim.nix ./lspsaga.nix ./trouble.nix ];
 
-  options = {
-    lsp.enable = lib.mkEnableOption "Enable lsp module";
-  };
+  options = { lsp.enable = lib.mkEnableOption "Enable lsp module"; };
   config = lib.mkIf config.dap.enable {
     conform.enable = lib.mkDefault true;
     fidget.enable = lib.mkDefault true;

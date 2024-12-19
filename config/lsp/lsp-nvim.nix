@@ -1,8 +1,5 @@
-{ lib, config, ... }:
-{
-  options = {
-    lsp-nvim.enable = lib.mkEnableOption "Enable lsp-nvim module";
-  };
+{ lib, config, ... }: {
+  options = { lsp-nvim.enable = lib.mkEnableOption "Enable lsp-nvim module"; };
   config = lib.mkIf config.lsp-nvim.enable {
     plugins = {
       lsp-format = {
@@ -12,46 +9,27 @@
         enable = true;
         capabilities = "offsetEncoding = 'utf-16'";
         servers = {
-          clangd = {
-            enable = true;
-          };
+          clangd = { enable = true; };
           lua_ls = {
             enable = true;
             extraOptions = {
               settings = {
                 Lua = {
-                  completion = {
-                    callSnippet = "Replace";
-                  };
-                  diagnostics = {
-                    globals = [ "vim" ];
-                  };
+                  completion = { callSnippet = "Replace"; };
+                  diagnostics = { globals = [ "vim" ]; };
 
-                  telemetry = {
-                    enabled = false;
-                  };
-                  hint = {
-                    enable = true;
-                  };
+                  telemetry = { enabled = false; };
+                  hint = { enable = true; };
                 };
               };
             };
           };
-          nil_ls = {
-            enable = false;
-          };
-          nixd = {
-            enable = true;
-          };
+          nil_ls = { enable = false; };
+          nixd = { enable = true; };
           ts_ls = {
-            enable = true;
+            enable = false;
             autostart = true;
-            filetypes = [
-              "javascript"
-              "javascriptreact"
-              "typescript"
-              "typescriptreact"
-            ];
+            filetypes = [ "javascript" "javascriptreact" "typescript" "typescriptreact" ];
             extraOptions = {
               settings = {
                 javascript = {
@@ -81,15 +59,9 @@
               };
             };
           };
-          eslint = {
-            enable = true;
-          };
-          pyright = {
-            enable = true;
-          };
-          ruff = {
-            enable = true;
-          };
+          eslint = { enable = false; };
+          pyright = { enable = true; };
+          ruff = { enable = true; };
 
           rust_analyzer = {
             enable = true;
@@ -97,18 +69,14 @@
             installRustc = true;
             settings = {
               checkOnSave = true;
-              check = {
-                command = "clippy";
-              };
+              check = { command = "clippy"; };
               # inlayHints = {
               #   enable = true;
               #   showParameterNames = true;
               #   parameterHintsPrefix = "<- ";
               #   otherHintsPrefix = "=> ";
               # };
-              procMacro = {
-                enable = true;
-              };
+              procMacro = { enable = true; };
             };
           };
         };

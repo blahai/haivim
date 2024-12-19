@@ -1,45 +1,29 @@
-{ lib, config, ... }:
-{
-  options = {
-    treesitter-nvim.enable = lib.mkEnableOption "Enable treesitter-nvim module";
-  };
+{ lib, config, ... }: {
+  options = { treesitter-nvim.enable = lib.mkEnableOption "Enable treesitter-nvim module"; };
   config = lib.mkIf config.treesitter-nvim.enable {
     plugins.treesitter = {
       enable = true;
       settings = {
-        highlight = {
-          enable = true;
-        };
-        indent = {
-          enable = true;
-        };
-        autopairs = {
-          enable = true;
-        };
-        folding = {
-          enable = true;
-        };
+        highlight = { enable = true; };
+        indent = { enable = true; };
+        autopairs = { enable = true; };
+        folding = { enable = true; };
         ensure_installed = [
           "bash"
           "c"
           "html"
           "css"
-          "javascript"
-          "jsdoc"
           "json"
           "lua"
           "luadoc"
           "luap"
           "nix"
           "rust"
-          "java"
           "markdown"
           "markdown_inline"
           "python"
           "query"
           "regex"
-          "tsx"
-          "typescript"
           "vim"
           "vimdoc"
           "toml"
@@ -99,22 +83,14 @@
       };
       swap = {
         enable = true;
-        swapNext = {
-          "<leader>a" = "@parameters.inner";
-        };
-        swapPrevious = {
-          "<leader>A" = "@parameter.outer";
-        };
+        swapNext = { "<leader>a" = "@parameters.inner"; };
+        swapPrevious = { "<leader>A" = "@parameter.outer"; };
       };
     };
 
-    plugins.ts-autotag = {
-      enable = true;
-    };
+    plugins.ts-autotag = { enable = true; };
 
-    plugins.treesitter-context = {
-      enable = true;
-    };
+    plugins.treesitter-context = { enable = true; };
 
     plugins.ts-context-commentstring = {
       enable = true;
