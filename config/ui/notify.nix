@@ -8,7 +8,7 @@
     plugins.notify = {
       enable = true;
       backgroundColour = "#000000";
-      fps = 60;
+      fps = 144;
       render = "default";
       timeout = 500;
       topDown = true;
