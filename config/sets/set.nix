@@ -1,5 +1,9 @@
-{ lib, config, ... }: {
-  options = { set.enable = lib.mkEnableOption "Enable set module"; };
+{
+  lib,
+  config,
+  ...
+}: {
+  options = {set.enable = lib.mkEnableOption "Enable set module";};
   config = lib.mkIf config.set.enable {
     opts = {
       # Enable relative line numbers
@@ -42,7 +46,7 @@
       updatetime = 50; # faster completion (4000ms default)
 
       # Set completeopt to have a better completion experience
-      completeopt = [ "menuone" "noselect" "noinsert" ]; # mostly just for cmp
+      completeopt = ["menuone" "noselect" "noinsert"]; # mostly just for cmp
 
       # Enable persistent undo history
       swapfile = false;
@@ -74,7 +78,7 @@
       # Place a column line
       colorcolumn = "80";
 
-      # Reduce which-key timeout 
+      # Reduce which-key timeout
       timeoutlen = 200;
 
       # Set encoding type
@@ -133,6 +137,6 @@
         o.guifont = "JetBrainsMono Nerd Font:h14:Medium:i"
       end
     '';
-    performance = { byteCompileLua.enable = true; };
+    performance = {byteCompileLua.enable = true;};
   };
 }

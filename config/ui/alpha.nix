@@ -1,5 +1,9 @@
-{ lib, config, ... }: {
-  options = { alpha.enable = lib.mkEnableOption "Enable alpha module"; };
+{
+  lib,
+  config,
+  ...
+}: {
+  options = {alpha.enable = lib.mkEnableOption "Enable alpha module";};
   config = lib.mkIf config.alpha.enable {
     plugins.alpha = {
       enable = true;
@@ -36,7 +40,7 @@
         {
           type = "button";
           val = "  Find File";
-          on_press = { __raw = "function() require('telescope.builtin').find_files() end"; };
+          on_press = {__raw = "function() require('telescope.builtin').find_files() end";};
           opts = {
             # hl = "comment";
             keymap = [
@@ -62,7 +66,7 @@
         {
           type = "button";
           val = "  New File";
-          on_press = { __raw = "function() vim.cmd[[ene]] end"; };
+          on_press = {__raw = "function() vim.cmd[[ene]] end";};
           opts = {
             # hl = "comment";
             keymap = [
@@ -88,7 +92,7 @@
         {
           type = "button";
           val = "󰈚  Recent Files";
-          on_press = { __raw = "function() require('telescope.builtin').oldfiles() end"; };
+          on_press = {__raw = "function() require('telescope.builtin').oldfiles() end";};
           opts = {
             # hl = "comment";
             keymap = [
@@ -114,7 +118,7 @@
         {
           type = "button";
           val = "󰈭  Find Word";
-          on_press = { __raw = "function() require('telescope.builtin').live_grep() end"; };
+          on_press = {__raw = "function() require('telescope.builtin').live_grep() end";};
           opts = {
             # hl = "comment";
             keymap = [
@@ -140,7 +144,7 @@
         {
           type = "button";
           val = "  Restore Session";
-          on_press = { __raw = "function() require('persistence').load() end"; };
+          on_press = {__raw = "function() require('persistence').load() end";};
           opts = {
             # hl = "comment";
             keymap = [
@@ -166,7 +170,7 @@
         {
           type = "button";
           val = "  Quit Neovim";
-          on_press = { __raw = "function() vim.cmd[[qa]] end"; };
+          on_press = {__raw = "function() vim.cmd[[qa]] end";};
           opts = {
             # hl = "comment";
             keymap = [

@@ -1,17 +1,21 @@
-{ lib, config, ... }: {
-  options = { cmp.enable = lib.mkEnableOption "Enable cmp module"; };
+{
+  lib,
+  config,
+  ...
+}: {
+  options = {cmp.enable = lib.mkEnableOption "Enable cmp module";};
   config = lib.mkIf config.cmp.enable {
     plugins = {
-      cmp-nvim-lsp = { enable = true; }; # lsp
-      cmp-buffer = { enable = true; };
-      cmp-path = { enable = true; }; # file system paths
-      cmp-cmdline = { enable = true; }; # autocomplete for cmdline
-      cmp_luasnip = { enable = true; }; # snippets
+      cmp-nvim-lsp = {enable = true;}; # lsp
+      cmp-buffer = {enable = true;};
+      cmp-path = {enable = true;}; # file system paths
+      cmp-cmdline = {enable = true;}; # autocomplete for cmdline
+      cmp_luasnip = {enable = true;}; # snippets
       cmp = {
         enable = true;
         autoEnableSources = false;
         settings = {
-          experimental = { ghost_text = true; };
+          experimental = {ghost_text = true;};
           mapping = {
             "<C-j>" = "cmp.mapping.select_next_item()";
             "<C-k>" = "cmp.mapping.select_prev_item()";
@@ -44,13 +48,11 @@
             "<C-f>" = "cmp.mapping.scroll_docs(4)";
             "<C-b>" = "cmp.mapping.scroll_docs(-4)";
             "<C-Space>" = "cmp.mapping.complete()";
-            "<CR>" =
-              "cmp.mapping.confirm({ select = false })"; # Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-            "<S-CR>" =
-              "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })";
+            "<CR>" = "cmp.mapping.confirm({ select = false })"; # Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+            "<S-CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })";
           };
           sources = [
-            { name = "nvim_lsp"; }
+            {name = "nvim_lsp";}
             {
               name = "buffer";
               keyword_length = 5;
@@ -67,7 +69,7 @@
 
           # Enable pictogram icons for lsp/autocompletion
           formatting = {
-            fields = [ "kind" "abbr" "menu" ];
+            fields = ["kind" "abbr" "menu"];
             expandable_indicator = true;
           };
           performance = {
@@ -80,7 +82,7 @@
               border = "rounded";
               winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None";
             };
-            documentation = { border = "rounded"; };
+            documentation = {border = "rounded";};
           };
         };
       };
@@ -140,7 +142,7 @@
         }, {
         { name = 'cmdline' }
         }),
-      })  
+      })
     '';
   };
 }

@@ -1,5 +1,11 @@
-{ lib, config, ... }: {
-  options = { none-ls-nvim.enable = lib.mkEnableOption "Enable none-ls-nvim module"; };
+{
+  lib,
+  config,
+  ...
+}: {
+  options = {
+    none-ls-nvim.enable = lib.mkEnableOption "Enable none-ls-nvim module";
+  };
   config = lib.mkIf config.none-ls-nvim.enable {
     plugins.none-ls = {
       enable = true;
@@ -27,12 +33,12 @@
           statix.enable = true;
         };
         diagnostics = {
-          checkstyle = { enable = true; };
-          statix = { enable = true; };
+          checkstyle = {enable = true;};
+          statix = {enable = true;};
         };
         formatting = {
-          alejandra = { enable = false; };
-          nixfmt = { enable = true; };
+          alejandra = {enable = true;};
+          nixfmt = {enable = false;};
           prettier = {
             enable = true;
             settings = ''
@@ -41,8 +47,8 @@
               }
             '';
           };
-          google_java_format = { enable = true; };
-          stylua = { enable = true; };
+          google_java_format = {enable = true;};
+          stylua = {enable = true;};
           black = {
             enable = true;
             settings = ''

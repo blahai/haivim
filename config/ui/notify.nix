@@ -1,5 +1,9 @@
-{ lib, config, ... }: {
-  options = { notify.enable = lib.mkEnableOption "Enable notify module"; };
+{
+  lib,
+  config,
+  ...
+}: {
+  options = {notify.enable = lib.mkEnableOption "Enable notify module";};
   config = lib.mkIf config.notify.enable {
     plugins.notify = {
       enable = true;
@@ -9,14 +13,16 @@
       timeout = 500;
       topDown = true;
     };
-    keymaps = [{
-      mode = "n";
-      key = "<leader>un";
-      action = ''
-        <cmd>lua require("notify").dismiss({ silent = true, pending = true })<cr>
-      '';
-      options = { desc = "Dismiss All Notifications"; };
-    }];
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>un";
+        action = ''
+          <cmd>lua require("notify").dismiss({ silent = true, pending = true })<cr>
+        '';
+        options = {desc = "Dismiss All Notifications";};
+      }
+    ];
     extraConfigLua = ''
         local notify = require("notify")
 

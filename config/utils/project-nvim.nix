@@ -1,5 +1,9 @@
-{ lib, config, ... }: {
-  options = { project-nvim.enable = lib.mkEnableOption "Enable project-nvim module"; };
+{
+  lib,
+  config,
+  ...
+}: {
+  options = {project-nvim.enable = lib.mkEnableOption "Enable project-nvim module";};
   config = lib.mkIf config.project-nvim.enable {
     plugins.project-nvim = {
       enable = true;

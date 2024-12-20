@@ -1,6 +1,10 @@
 # Thanks for the keybinds primeagen and folke!
-{ lib, config, ... }: {
-  options = { keys.enable = lib.mkEnableOption "Enable keys module"; };
+{
+  lib,
+  config,
+  ...
+}: {
+  options = {keys.enable = lib.mkEnableOption "Enable keys module";};
   config = lib.mkIf config.keys.enable {
     globals.mapleader = " ";
     keymaps = [
@@ -283,7 +287,7 @@
         mode = "n";
         key = "<C-u>";
         action = "<C-u>zz";
-        options = { desc = "Allow C-d and C-u to keep the cursor in the middle"; };
+        options = {desc = "Allow C-d and C-u to keep the cursor in the middle";};
       }
 
       # Remap for dealing with word wrap and adding jumps to the jumplist.
@@ -311,14 +315,14 @@
         mode = "n";
         key = "n";
         action = "nzzzv";
-        options = { desc = "Allow search terms to stay in the middle"; };
+        options = {desc = "Allow search terms to stay in the middle";};
       }
 
       {
         mode = "n";
         key = "N";
         action = "Nzzzv";
-        options = { desc = "Allow search terms to stay in the middle"; };
+        options = {desc = "Allow search terms to stay in the middle";};
       }
 
       # Paste stuff without saving the deleted word into the buffer
@@ -326,30 +330,30 @@
         mode = "x";
         key = "<leader>p";
         action = ''"_dP'';
-        options = { desc = "Deletes to void register and paste over"; };
+        options = {desc = "Deletes to void register and paste over";};
       }
 
       # Copy stuff to system clipboard with <leader> + y or just y to have it just in vim
       {
-        mode = [ "n" "v" ];
+        mode = ["n" "v"];
         key = "<leader>y";
         action = ''"+y'';
-        options = { desc = "Copy to system clipboard"; };
+        options = {desc = "Copy to system clipboard";};
       }
 
       {
-        mode = [ "n" "v" ];
+        mode = ["n" "v"];
         key = "<leader>Y";
         action = ''"+Y'';
-        options = { desc = "Copy to system clipboard"; };
+        options = {desc = "Copy to system clipboard";};
       }
 
       # Delete to void register
       {
-        mode = [ "n" "v" ];
+        mode = ["n" "v"];
         key = "<leader>D";
         action = ''"_d'';
-        options = { desc = "Delete to void register"; };
+        options = {desc = "Delete to void register";};
       }
 
       # <C-c> instead of pressing esc just because
@@ -363,7 +367,7 @@
         mode = "n";
         key = "<C-f>";
         action = "!tmux new tmux-sessionizer<CR>";
-        options = { desc = "Switch between projects"; };
+        options = {desc = "Switch between projects";};
       }
 
       # Set highlight on search, but clear on pressing <Esc> in normal mode

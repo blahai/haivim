@@ -1,5 +1,9 @@
-{ lib, config, ... }: {
-  options = { catppuccin.enable = lib.mkEnableOption "Enable catppuccin module"; };
+{
+  lib,
+  config,
+  ...
+}: {
+  options = {catppuccin.enable = lib.mkEnableOption "Enable catppuccin module";};
   config = lib.mkIf config.catppuccin.enable {
     colorschemes = {
       catppuccin = {
@@ -23,7 +27,7 @@
             harpoon = true;
             gitsigns = true;
             which_key = true;
-            illuminate = { enabled = true; };
+            illuminate = {enabled = true;};
             treesitter = true;
             treesitter_context = true;
             telescope.enabled = true;
@@ -31,12 +35,12 @@
             mini.enabled = true;
             native_lsp = {
               enabled = true;
-              inlay_hints = { background = true; };
+              inlay_hints = {background = true;};
               underlines = {
-                errors = [ "underline" ];
-                hints = [ "underline" ];
-                information = [ "underline" ];
-                warnings = [ "underline" ];
+                errors = ["underline"];
+                hints = ["underline"];
+                information = ["underline"];
+                warnings = ["underline"];
               };
             };
           };

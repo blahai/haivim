@@ -1,6 +1,11 @@
-{ lib, config, pkgs, ... }: {
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   # TODO: Refactor this as neotest is supported on nixvim now
-  options = { neotest.enable = lib.mkEnableOption "Enable neotest module"; };
+  options = {neotest.enable = lib.mkEnableOption "Enable neotest module";};
   config = lib.mkIf config.neotest.enable {
     extraPlugins = with pkgs.vimPlugins; [
       (pkgs.vimUtils.buildVimPlugin {

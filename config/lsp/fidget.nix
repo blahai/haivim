@@ -1,7 +1,10 @@
-{ lib, config, ... }: {
-  options = { fidget.enable = lib.mkEnableOption "Enable fidget module"; };
+{
+  lib,
+  config,
+  ...
+}: {
+  options = {fidget.enable = lib.mkEnableOption "Enable fidget module";};
   config = lib.mkIf config.fidget.enable {
-
     plugins.fidget = {
       enable = true;
       logger = {
@@ -26,7 +29,7 @@
           ''
             function(msg) return msg.lsp_client.name end
           '';
-        ignore = [ ]; # List of LSP servers to ignore
+        ignore = []; # List of LSP servers to ignore
         lsp = {
           progressRingbufSize = 0; # Configure the nvim's LSP progress ring buffer size
         };
@@ -55,7 +58,7 @@
             function (group) return tostring (group) end
           ''; # How to format a progress notification group's name
           overrides = {
-            rust_analyzer = { name = "rust-analyzer"; };
+            rust_analyzer = {name = "rust-analyzer";};
           }; # Override options from the default notification config
         };
       };
@@ -71,7 +74,7 @@
             end
           end
         '';
-        configs = { default = "require('fidget.notification').default_config"; };
+        configs = {default = "require('fidget.notification').default_config";};
 
         window = {
           normalHl = "Comment";

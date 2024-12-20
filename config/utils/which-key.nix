@@ -1,5 +1,9 @@
-{ lib, config, ... }: {
-  options = { which-key.enable = lib.mkEnableOption "Enable which-key module"; };
+{
+  lib,
+  config,
+  ...
+}: {
+  options = {which-key.enable = lib.mkEnableOption "Enable which-key module";};
   config = lib.mkIf config.which-key.enable {
     plugins.which-key = {
       enable = true;
@@ -46,12 +50,12 @@
           # General Mappings
           {
             __unkeyed-1 = "<leader>c";
-            mode = [ "n" "v" ];
+            mode = ["n" "v"];
             group = "+code";
           }
           {
             __unkeyed-1 = "<leader>d";
-            mode = [ "n" "v" ];
+            mode = ["n" "v"];
             group = "+debug";
           }
           {
@@ -62,7 +66,7 @@
 
           {
             __unkeyed-1 = "<leader>g";
-            mode = [ "n" "v" ];
+            mode = ["n" "v"];
             group = "+git";
           }
 

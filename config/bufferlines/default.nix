@@ -1,6 +1,10 @@
-{ lib, config, ... }: {
-  imports = [ ./bufferline.nix ];
+{
+  lib,
+  config,
+  ...
+}: {
+  imports = [./bufferline.nix];
 
-  options = { bufferlines.enable = lib.mkEnableOption "Enable bufferlines module"; };
-  config = lib.mkIf config.bufferlines.enable { bufferline.enable = lib.mkDefault true; };
+  options = {bufferlines.enable = lib.mkEnableOption "Enable bufferlines module";};
+  config = lib.mkIf config.bufferlines.enable {bufferline.enable = lib.mkDefault true;};
 }
