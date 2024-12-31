@@ -19,7 +19,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           if [[ $(git status --porcelain) ]]; then
             git add flake.lock
-          git commit -m "Chore: update flake.lock"
+            git commit -m "Chore: update flake.lock"
             git push
           else
             echo "No changes to commit"
