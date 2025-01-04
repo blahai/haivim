@@ -67,6 +67,8 @@
           pyright = {enable = true;};
           ruff = {enable = true;};
 
+          qmlls = {enable = true;};
+
           rust_analyzer = {
             enable = true;
             installCargo = true;

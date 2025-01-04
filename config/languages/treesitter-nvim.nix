@@ -32,6 +32,7 @@
           "vimdoc"
           "toml"
           "yaml"
+          "qmljs"
         ];
         auto_install = true;
         incremental_selection = {
