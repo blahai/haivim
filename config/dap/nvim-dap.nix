@@ -5,31 +5,33 @@
 }: {
   options = {nvim-dap.enable = lib.mkEnableOption "Enable Debug Adapter Protocol module";};
   config = lib.mkIf config.nvim-dap.enable {
-    plugins.dap = {
-      enable = true;
-      signs = {
-        dapBreakpoint = {
-          text = "●";
-          texthl = "DapBreakpoint";
-        };
-        dapBreakpointCondition = {
-          text = "●";
-          texthl = "DapBreakpointCondition";
-        };
-        dapLogPoint = {
-          text = "◆";
-          texthl = "DapLogPoint";
-        };
+    plugins = {
+      dap-python = {enable = true;};
+      dap-ui = {
+        enable = true;
+        settings.floating.mappings = {close = ["<ESC>" "q"];};
       };
-      extensions = {
-        dap-python = {enable = true;};
-        dap-ui = {
-          enable = true;
-          floating.mappings = {close = ["<ESC>" "q"];};
+      dap-virtual-text = {enable = true;};
+      dap = {
+        enable = true;
+        signs = {
+          dapBreakpoint = {
+            text = "●";
+            texthl = "DapBreakpoint";
+          };
+          dapBreakpointCondition = {
+            text = "●";
+            texthl = "DapBreakpointCondition";
+          };
+          dapLogPoint = {
+            text = "◆";
+            texthl = "DapLogPoint";
+          };
         };
-        dap-virtual-text = {enable = true;};
-      };
-      configurations = {
+        extensions = {
+        };
+        configurations = {
+        };
       };
     };
 
