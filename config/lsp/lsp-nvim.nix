@@ -69,17 +69,17 @@
 
           rust_analyzer = {
             enable = true;
-            installCargo = true;
-            installRustc = true;
+            installCargo = false;
+            installRustc = false;
             settings = {
               checkOnSave = true;
               check = {command = "clippy";};
-              # inlayHints = {
-              #   enable = true;
-              #   showParameterNames = true;
-              #   parameterHintsPrefix = "<- ";
-              #   otherHintsPrefix = "=> ";
-              # };
+              inlayHints = {
+                enable = true;
+                showParameterNames = true;
+                parameterHintsPrefix = "<- ";
+                otherHintsPrefix = "=> ";
+              };
               procMacro = {enable = true;};
             };
           };
