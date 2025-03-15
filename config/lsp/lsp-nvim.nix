@@ -30,7 +30,7 @@
             };
           };
           nil_ls = {
-            enable = true;
+            enable = false;
             settings = {
               nix = {
                 maxMemoryMB = 4096;
@@ -42,7 +42,7 @@
             };
           };
           nixd = {
-            enable = false;
+            enable = true;
           };
           statix = {enable = true;};
           ts_ls = {
