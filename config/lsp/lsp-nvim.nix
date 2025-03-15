@@ -13,6 +13,7 @@
         enable = true;
         capabilities = "offsetEncoding = 'utf-16'";
         servers = {
+          astro = {enable = true;};
           clangd = {enable = true;};
           lua_ls = {
             enable = true;
@@ -28,8 +29,22 @@
               };
             };
           };
-          nil_ls = {enable = false;};
-          nixd = {enable = true;};
+          nil_ls = {
+            enable = true;
+            settings = {
+              nix = {
+                maxMemoryMB = 4096;
+                flake = {
+                  autoArchive = true;
+                  autoEvalInputs = true;
+                };
+              };
+            };
+          };
+          nixd = {
+            enable = false;
+          };
+          statix = {enable = true;};
           ts_ls = {
             enable = false;
             autostart = true;
@@ -64,8 +79,8 @@
             };
           };
           eslint = {enable = false;};
-          pyright = {enable = true;};
-          ruff = {enable = true;};
+          pyright = {enable = false;};
+          ruff = {enable = false;};
 
           rust_analyzer = {
             enable = true;

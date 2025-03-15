@@ -13,6 +13,7 @@
         autopairs = {enable = true;};
         folding = {enable = true;};
         ensure_installed = [
+          "astro"
           "bash"
           "c"
           "html"
@@ -33,6 +34,7 @@
           "toml"
           "yaml"
           "qmljs"
+          "zig"
         ];
         auto_install = true;
         incremental_selection = {

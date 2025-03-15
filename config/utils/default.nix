@@ -10,7 +10,6 @@
     ./markdown-preview.nix
     ./mini.nix
     ./neocord.nix
-    ./neotest.nix
     ./nvim-autopairs.nix
     ./nvim-colorizer.nix
     ./nvim-surround.nix
@@ -33,21 +32,20 @@
   config = lib.mkIf config.utils.enable {
     better-escape.enable = lib.mkDefault true;
     cloak.enable = lib.mkDefault true;
-    harpoon.enable = lib.mkDefault true;
+    harpoon.enable = lib.mkDefault false;
     markdown-preview.enable = lib.mkDefault false;
     mini.enable = lib.mkDefault true;
     neocord.enable = lib.mkDefault true;
-    neotest.enable = lib.mkDefault false;
     nvim-autopairs.enable = lib.mkDefault true;
     nvim-colorizer.enable = lib.mkDefault true;
     nvim-surround.enable = lib.mkDefault true;
-    nvterm.enable = lib.mkDefault true;
+    nvterm.enable = lib.mkDefault false;
     oil.enable = lib.mkDefault true;
     persistence.enable = lib.mkDefault true;
     plenary.enable = lib.mkDefault true;
     project-nvim.enable = lib.mkDefault true;
     sidebar.enable = lib.mkDefault false;
-    tmux-navigator.enable = lib.mkDefault true;
+    tmux-navigator.enable = lib.mkDefault false;
     todo-comments.enable = lib.mkDefault true;
     ultimate-autopair.enable = lib.mkDefault true;
     undotree.enable = lib.mkDefault true;

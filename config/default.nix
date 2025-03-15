@@ -13,9 +13,9 @@
     ./git
     ./keys.nix
     ./languages
+    ./lazy
     ./lsp
     ./none-ls
-    ./pluginmanagers
     ./sets
     ./snippets
     ./statusline
@@ -32,10 +32,10 @@
   git.enable = lib.mkDefault true;
   keys.enable = true;
   languages.enable = true;
+  lazy.enable = true;
   lsp.enable = lib.mkDefault true;
   none-ls.enable = lib.mkDefault false;
   sets.enable = lib.mkDefault true;
-  pluginmanagers.enable = lib.mkDefault true;
   snippets.enable = lib.mkDefault true;
   statusline.enable = lib.mkDefault true;
   telescope.enable = lib.mkDefault true;

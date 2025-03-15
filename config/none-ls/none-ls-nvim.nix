@@ -47,7 +47,7 @@
               }
             '';
           };
-          google_java_format = {enable = true;};
+          google_java_format = {enable = false;};
           stylua = {enable = true;};
           black = {
             enable = true;

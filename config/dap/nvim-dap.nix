@@ -9,6 +9,26 @@
       dap-python = {enable = true;};
       dap-ui = {
         enable = true;
+        lazyLoad.settings = {
+          # We need to access nvim-dap in the after function.
+          before.__raw = ''
+            function()
+              require('lz.n').trigger_load('nvim-dap')
+            end
+          '';
+          keys = [
+            {
+              __unkeyed-1 = "<leader>du";
+              __unkeyed-2.__raw = ''
+                function()
+                  require('dap.ext.vscode').load_launchjs(nil, {})
+                  require("dapui").toggle()
+                end
+              '';
+              desc = "Toggle Debugger UI";
+            }
+          ];
+        };
         settings.floating.mappings = {close = ["<ESC>" "q"];};
       };
       dap-virtual-text = {enable = true;};
