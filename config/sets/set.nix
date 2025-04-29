@@ -137,6 +137,6 @@
         o.guifont = "JetBrainsMono Nerd Font:h14:Medium:i"
       end
     '';
-    performance = {byteCompileLua.enable = true;};
+    performance = {byteCompileLua.enable = false;};
   };
 }

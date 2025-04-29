@@ -46,7 +46,7 @@
       {
         mode = "n";
         key = "<leader>e";
-        action = "<cmd>Neotree toggle<CR>";
+        action = "<cmd>Neotree toggle reveal<CR>";
         options = {
           silent = true;
           desc = "Explorer NeoTree (cwd)";

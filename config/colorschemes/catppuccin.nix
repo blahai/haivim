@@ -5,9 +5,11 @@
 }: {
   options = {catppuccin.enable = lib.mkEnableOption "Enable catppuccin module";};
   config = lib.mkIf config.catppuccin.enable {
+    colorscheme = "catppuccin";
     colorschemes = {
       catppuccin = {
         enable = true;
+        lazyLoad.enable = true;
         settings = {
           background = {
             light = "macchiato";

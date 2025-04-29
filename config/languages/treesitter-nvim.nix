@@ -16,6 +16,7 @@
           "astro"
           "bash"
           "c"
+          "cpp"
           "html"
           "css"
           "json"
