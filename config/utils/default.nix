@@ -34,7 +34,7 @@
     harpoon.enable = lib.mkDefault false;
     markdown-preview.enable = lib.mkDefault false;
     mini.enable = lib.mkDefault true;
-    neocord.enable = lib.mkDefault true;
+    neocord.enable = lib.mkDefault false;
     nvim-autopairs.enable = lib.mkDefault true;
     nvim-colorizer.enable = lib.mkDefault true;
     nvim-surround.enable = lib.mkDefault true;
