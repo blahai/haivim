@@ -134,7 +134,7 @@
         g.neovide_transparency = 0.8
 
         -- Neovide Fonts
-        o.guifont = "JetBrainsMono Nerd Font:h14:Medium:i"
+        o.guifont = "Maple Mono:h14:Medium:i"
       end
     '';
     performance = {byteCompileLua.enable = false;};
