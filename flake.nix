@@ -1,56 +1,46 @@
 {
-  description = "haivim is a Neovim configuration built with Nixvim, which allows you to use Nix language to manage Neovim plugins/options";
+  description = "A very basic flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs = {nixpkgs.follows = "nixpkgs";};
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        nuschtosSearch.follows = "";
+      };
     };
-    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = {
-    self,
     nixpkgs,
     nixvim,
-    flake-utils,
     ...
-  } @ inputs: let
-    config = import ./config; # import the module directly
-    # Enable unfree packages
-    nixpkgsConfig = {allowUnfree = true;};
-  in
-    {
-      nixvimModule = config;
-    }
-    // flake-utils.lib.eachDefaultSystem (system: let
-      nixvimLib = nixvim.lib.${system};
-      pkgs = import nixpkgs {
-        inherit system;
-        config = nixpkgsConfig;
-      };
-      nixvim' = nixvim.legacyPackages.${system};
-      nvim = nixvim'.makeNixvimWithModule {
-        inherit pkgs;
-        module = config;
-        # You can use `extraSpecialArgs` to pass additional arguments to your module files
-        extraSpecialArgs = {inherit self;};
-      };
-    in {
-      checks = {
-        # Run `nix flake check .` to verify that your config is not broken
-        default = nixvimLib.check.mkTestDerivationFromNvim {
-          inherit nvim;
-          name = "haivim";
-        };
-      };
+  }: let
+    config = ./config;
 
-      packages = {
-        # Lets you run `nix run .` to start nixvim
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
+
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+  in {
+    packages = forAllSystems (
+      system: let
+        nixvim' = nixvim.legacyPackages.${system};
+        nvim = nixvim'.makeNixvim config;
+      in {
+        inherit nvim;
         default = nvim;
-      };
-
-      formatter = pkgs.alejandra;
-    });
+      }
+    );
+  };
 }
