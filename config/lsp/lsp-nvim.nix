@@ -37,16 +37,22 @@
             enable = false;
             settings = {
               nix = {
-                maxMemoryMB = 4096;
+                maxMemoryMB = 8192;
                 flake = {
                   autoArchive = true;
-                  autoEvalInputs = true;
+                  autoEvalInputs = false;
                 };
               };
             };
           };
           nixd = {
             enable = true;
+            settings = {
+              nixpkgs.expr = "import (builtins.getFlake \"~/.config/haios\").inputs.nixpkgs { }";
+              options = {
+                nixos.expr = "(builtins.getFlake \"~/.config/haios\").nixosConfigurations.nyx.options";
+              };
+            };
           };
           statix = {enable = true;};
           ts_ls = {
