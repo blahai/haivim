@@ -17,7 +17,6 @@
           clangd = {enable = true;};
           qmlls = {
             enable = true;
-            cmd = ["qmlls" "-E"];
           };
           lua_ls = {
             enable = true;
