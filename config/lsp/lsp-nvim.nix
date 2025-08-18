@@ -89,7 +89,7 @@
           };
           eslint = {enable = false;};
           pyright = {enable = false;};
-          ruff = {enable = false;};
+          ruff = {enable = true;};
 
           rust_analyzer = {
             enable = true;
