@@ -98,7 +98,7 @@
 
     plugins.ts-autotag = {enable = true;};
 
-    plugins.treesitter-context = {enable = true;};
+    plugins.treesitter-context = {enable = false;};
 
     plugins.ts-context-commentstring = {
       enable = true;
