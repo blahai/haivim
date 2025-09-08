@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   options = {lsp-nvim.enable = lib.mkEnableOption "Enable lsp-nvim module";};
@@ -14,12 +15,15 @@
         capabilities = "offsetEncoding = 'utf-16'";
         servers = {
           astro = {enable = true;};
-          clangd = {enable = true;};
+          clangd = {
+            enable = true;
+          };
           qmlls = {
             enable = true;
           };
           lua_ls = {
             enable = true;
+            package = pkgs.lua-language-server;
             extraOptions = {
               settings = {
                 Lua = {
@@ -46,14 +50,18 @@
           };
           nixd = {
             enable = true;
+            package = pkgs.nixd;
             settings = {
               nixpkgs.expr = "import (builtins.getFlake \"~/.config/haios\").inputs.nixpkgs { }";
               options = {
-                nixos.expr = "(builtins.getFlake \"~/.config/haios\").nixosConfigurations.nyx.options";
+                nixos.expr = "(builtins.getFlake (builtins.getEnv \"FLAKE\")).nixosConfigurations.${builtins.getEnv "HOST"}.options";
               };
             };
           };
-          statix = {enable = true;};
+          statix = {
+            enable = true;
+            package = pkgs.statix;
+          };
           ts_ls = {
             enable = false;
             autostart = true;
@@ -88,8 +96,14 @@
             };
           };
           eslint = {enable = false;};
-          pyright = {enable = true;};
-          ruff = {enable = true;};
+          basedpyright = {
+            enable = true;
+            package = pkgs.basedpyright;
+          };
+          ruff = {
+            enable = true;
+            package = pkgs.ruff;
+          };
 
           rust_analyzer = {
             enable = true;

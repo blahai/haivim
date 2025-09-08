@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   options = {
@@ -37,8 +38,14 @@
           statix = {enable = true;};
         };
         formatting = {
-          alejandra = {enable = true;};
-          nixfmt = {enable = false;};
+          alejandra = {
+            enable = true;
+            package = pkgs.alejandra;
+          };
+          nixfmt = {
+            enable = false;
+            package = pkgs.nixfmt;
+          };
           prettier = {
             enable = true;
             settings = ''
@@ -48,7 +55,10 @@
             '';
           };
           google_java_format = {enable = false;};
-          stylua = {enable = true;};
+          stylua = {
+            enable = true;
+            package = pkgs.stylua;
+          };
           black = {
             enable = true;
             settings = ''
