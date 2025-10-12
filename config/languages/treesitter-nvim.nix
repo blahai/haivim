@@ -36,6 +36,7 @@
           "yaml"
           "qmljs"
           "zig"
+          "sql"
         ];
         auto_install = true;
         incremental_selection = {
