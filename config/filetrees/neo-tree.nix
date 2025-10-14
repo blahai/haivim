@@ -18,14 +18,16 @@
           bindToCwd = false;
           followCurrentFile = {enabled = true;};
         };
-        eventHandlers = {
-          file_opened = ''
-            function(file_path)
-              --auto close
-              require("neo-tree").close_all()
-            end
-          '';
-        };
+        event_handlers = [
+          {
+            event = "file_open_requested";
+            handler.__raw = ''
+              function()
+                require('neo-tree.command').execute({action= "close"})
+              end
+            '';
+          }
+        ];
         window = {
           width = 40;
           height = 15;
