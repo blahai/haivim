@@ -15,6 +15,19 @@
         capabilities = "offsetEncoding = 'utf-16'";
         servers = {
           astro = {enable = true;};
+          svelte = {enable = true;};
+          vue_ls = {
+            enable = true;
+            tslsIntegration = true;
+          };
+          gitlab_ci_ls = {
+            enable = true;
+            package = pkgs.gitlab-ci-ls;
+          };
+          sqls = {
+            enable = true;
+            package = pkgs.sqls;
+          };
           clangd = {
             enable = true;
           };
@@ -72,7 +85,7 @@
             package = pkgs.statix;
           };
           ts_ls = {
-            enable = false;
+            enable = true;
             autostart = true;
             filetypes = ["javascript" "javascriptreact" "typescript" "typescriptreact"];
             extraOptions = {
