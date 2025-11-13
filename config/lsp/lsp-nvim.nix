@@ -25,7 +25,7 @@
             package = pkgs.gitlab-ci-ls;
           };
           sqls = {
-            enable = true;
+            enable = false; # shit's broken gg
             package = pkgs.sqls;
           };
           clangd = {
